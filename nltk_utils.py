@@ -4,7 +4,7 @@ from nltk.stem.porter import PorterStemmer
 
 stemmer = PorterStemmer()
 
-def tokenise(sentence):
+def tokenize(sentence):
     return nltk.word_tokenize(sentence)
 
 def stem(word):
