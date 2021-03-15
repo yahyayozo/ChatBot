@@ -62,7 +62,7 @@ num_epochs = 1000
 dataset = ChatDataSet()
 train_loader = DataLoader(dataset = dataset,batch_size=batch_size,shuffle=True,num_workers=2)
 
-#device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
+device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 model = NeuralNet(input_size,hidden_size,output_size)
 
 #Loss and Optimiser
@@ -72,8 +72,8 @@ optimiser = torch.optim.Adam(model.parameters , lr = learning_rate)
 
 for epoch in range(num_epochs):
     for (words,labels) in train_loader:
-        #words = words.to(device)
-        #labels = labels.to(device)
+        words = words.to(device)
+        labels = labels.to(device)
 
         #forward
         outputs = model(words)
